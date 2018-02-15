@@ -8,27 +8,19 @@ public class StringFinding {
         String s = sc.readLine();
         String x = sc.readLine();
         int b = x.length();
-        char[] d = s.toCharArray();
-        int c = 0;
-        
-        for(int i =0; i < x.length();i++) {
-        	c+= (int) x.charAt(i);
-        }
+        int c = Integer.valueOf(x);
         if(b > 0 && s.length()> 0 && s.length() >= b) {
         for(int i = b - 1; i < s.length(); i++) {
-        	int e = 0;
-        	for(int j = i; j > i-b; j++) {
-        		e+= (int) s.charAt(i);
-        	}
-        	if(e == c) {
+        	if(Integer.valueOf(s.substring(i - b +1 , i+ 1)) == c) {
                 if(s.substring(i - b +1 , i+ 1).equals(x)) {
                     System.out.print(i - b + 1);
-                    System.exit(0);
+                    break;
                 }
             }
-            
+            if(i == s.length() -1) {
+              System.out.println(-1);
+            }
         }
-        System.out.println(-1);
         } else {
             System.out.println(-1);
         }
@@ -36,12 +28,5 @@ public class StringFinding {
     } catch(IOException e) {
         
     }
-
-    
-    
-    
-    
-
-        
     }
 }
